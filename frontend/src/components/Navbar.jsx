@@ -5,19 +5,19 @@ import logo from "../assets/MedAhead_logo.png";
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
 
-    // Step 2: Add a scroll event listener to track if the user has scrolled
+  
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
-                setIsScrolled(true); // User scrolled down
+                setIsScrolled(true); 
             } else {
-                setIsScrolled(false); // User is at the top
+                setIsScrolled(false); 
             }
         };
 
         window.addEventListener("scroll", handleScroll);
 
-        // Cleanup the event listener on component unmount
+       
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };

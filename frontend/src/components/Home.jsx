@@ -106,19 +106,60 @@ const Home = () => {
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
               <div className="h-40 bg-gray-200 flex items-center justify-center">
                 <img
-                  src="/path-to-hospital-image2.jpg"
+                  src={doctor}
                   alt="Hospital Name"
                   className="object-cover w-full h-full"
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold mb-2 text-gray-800">National Hospital</h3>
-                <p className="text-sm text-gray-600 mb-4">London, UK</p>
+                <p className="text-sm text-gray-600 mb-4">Kathmandu</p>
                 <button className="px-4 py-2 bg-customTeal text-white text-sm font-medium rounded hover:bg-teal-600 transition">
                   View Details
                 </button>
               </div>
             </div>
+
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+              <div className="h-40 bg-gray-200 flex items-center justify-center">
+                <img
+                  src={doctor}
+                  alt="Hospital Name"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold mb-2 text-gray-800">Nobel Hospital</h3>
+                <p className="text-sm text-gray-600 mb-4">Biratnagar</p>
+                <button className="px-4 py-2 bg-customTeal text-white text-sm font-medium rounded hover:bg-teal-600 transition">
+                  View Details
+                </button>
+              </div>
+            </div>
+
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+              <div className="h-40 bg-gray-200 flex items-center justify-center">
+                <img
+                  src={image}
+                  alt="Hospital Name"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold mb-2 text-gray-800">City hospital</h3>
+                <p className="text-sm text-gray-600 mb-4">Kathmandu</p>
+                <button className="px-4 py-2 bg-customTeal text-white text-sm font-medium rounded hover:bg-teal-600 transition">
+                  View Details
+                </button>
+              </div>
+            </div>
+
+            
+
+
+
+
+
           </div>
         </div>
       </section>
