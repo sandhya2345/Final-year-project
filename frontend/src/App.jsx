@@ -8,6 +8,9 @@ import About from './components/About'
 import Services from './components/Services'
 import Hospital from './components/Hospital'
 import News from './components/News'
+import PredictDisease from './components/PredictDisease'
+import Signup from './components/Signup'
+
 
 function App() {
   const router = createBrowserRouter ([
@@ -37,6 +40,16 @@ function App() {
     {
       path: "/news",
       element:<><Navbar/><News/></>
+    },
+
+    {
+      path: "/predict",
+      element:<><Navbar/><PredictDisease/></>
+    },
+
+    {
+      path: "/signin",
+      element:<><Navbar/><Signup/></>
     },
   ])
 

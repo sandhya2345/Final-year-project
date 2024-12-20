@@ -9,7 +9,7 @@ import grandma from "../assets/grandma.jpg"
 
 const Home = () => {
   return (
-    <div className="relative h-[120vh] bg-gradient-to-r from-customTeal via-midTeal to-lightGray text-white pt-8">
+    <div className="relative h-[120vh] bg-gradient-to-r from-midTeal via-midTeal to-white text-white pt-8">
       <Navbar />
 
       {/* Hero Section */}
