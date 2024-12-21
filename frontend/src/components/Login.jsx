@@ -3,10 +3,10 @@ import Navbar from './Navbar';
 
 const Login = () => {
   return (
-    <div className="relative h-screen bg-gradient-to-b from-customTeal via-midTeal to-midTeal text-white pt-8 flex items-center justify-center">
+    <div className="relative h-screen bg-gradient-to-b from-midTeal via-midTeal to-midTeal text-white pt-8 flex items-center justify-center">
       <Navbar />
-      <div className="bg-white/60 backdrop-blur-lg shadow-lg rounded-md p-14 w-[500px]">
-        <h1 className="text-2xl font-semibold text-gray-900 text-center mb-4">MedAhead</h1>
+      <div className="bg-white backdrop-blur-lg shadow-lg rounded-md p-14 w-[500px]">
+        <h1 className="text-3xl font-semibold text-gray-900 text-center mb-4">MedAhead</h1>
         <form>
           <div className="mb-4">
             <label
