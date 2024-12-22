@@ -16,9 +16,12 @@ const Hospital = () => {
             <input
               type="text"
               placeholder="Search Hospital"
-              className="w-full md:w-80 p-3 border border-gray-300 rounded-lg focus:outline-none"
+              className="w-full md:w-80 p-2
+              border border-gray-300 focus:outline-none
+              text-black"
             />
-            <button className="px-8 py-3 bg-customTeal text-white font-semibold rounded-lg">
+            <button className="px-8 py-2
+           bg-customTeal text-white font-semibold">
               Search
             </button>
           </div>
@@ -27,8 +30,9 @@ const Hospital = () => {
        
         <div className="flex flex-col md:flex-row gap-8">
           {/* Filter Section */}
-          <div className="w-full md:w-1/4 bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-bold mb-4 text-black">Filter your search</h2>
+          <div className="w-full md:w-[30%] bg-white opacity-70 backdrop-blur-md p-6 ">
+            <h2 className="text-xl font-bold mb-4 text-black
+            ">Filter your search</h2>
             <div className="space-y-6">
               {/* Location Filter */}
               <div>
@@ -78,16 +82,17 @@ const Hospital = () => {
 
           {/* Hospital List */}
           <div className="w-full md:w-3/4 space-y-6">
-            <div className="bg-white flex items-center">
-              <div className="w-1/5 bg-gray-100 flex items-center justify-center overflow-hidden h-48">
+            <div className="bg-white flex items-center ">
+              <div className="w-1/5 bg-gray-100 flex items-center justify-center overflow-hidden h-52">
                 <img
                   src={doctor2}
                   alt="Hospital Logo"
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="ml-8 flex-grow">
-                <h2 className="text-xl font-bold text-gray-800">City Hospital</h2>
+              <div className="ml-8 flex-grow mb-6">
+                <h2 className="text-xl font-bold text-gray-800 mb-4">
+                City Hospital</h2>
                 <p className="text-md text-gray-600">Location: Kathmandu, Nepal</p>
                 <p className="text-md text-gray-600">Specialization: Cardiology, Neurology</p>
               </div>
@@ -95,6 +100,28 @@ const Hospital = () => {
                 View Details →
               </button>
             </div>
+
+            <div className="bg-white flex items-center ">
+              <div className="w-1/5 bg-gray-100 flex items-center justify-center overflow-hidden h-52">
+                <img
+                  src={doctor2}
+                  alt="Hospital Logo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="ml-8 flex-grow mb-6">
+                <h2 className="text-xl font-bold text-gray-800 mb-4">
+                City Hospital</h2>
+                <p className="text-md text-gray-600">Location: Kathmandu, Nepal</p>
+                <p className="text-md text-gray-600">Specialization: Cardiology, Neurology</p>
+              </div>
+              <button className=" px-4 py-3 bg-midTeal text-white mr-4">
+                View Details →
+              </button>
+            </div>
+
+           
+            
 
             
            

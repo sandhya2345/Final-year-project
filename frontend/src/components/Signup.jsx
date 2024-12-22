@@ -13,8 +13,8 @@ const Signup = () => {
 
   return (
     <div className="relative h-screen bg-gradient-to-b from-customTeal via-midTeal to-midTeal text-white pt-8 flex items-center justify-center">
-      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8">
-        {/* Left Content */}
+      <div className="container mx-auto px-16 mt-4 flex flex-col lg:flex-row items-center gap-8">
+
         <div className="lg:w-1/2 text-center lg:text-left space-y-6 mb-20">
           <h1 className="text-4xl font-extrabold text-white">Welcome to MedAhead!</h1>
           <p className="text-lg text-white">
@@ -32,10 +32,19 @@ const Signup = () => {
               <span className="text-white text-2xl">✔</span> Connect with Hospitals
             </li>
           </ul>
+          <p className="mt-8 text-center text-md -ml-60
+          text-white">
+          Already have an account?{' '}
+          <a href="/register" className="text-white
+           hover:underline">
+            Login here
+          </a>
+          </p>
+          
         </div>
 
-        {/* Signup Form Centered */}
-        <div className="lg:w-1/2/3 bg-white rounded-lg shadow-lg p-6 mx-auto space-y-6 mt-10">
+       
+        <div className="lg:w-1/2/3 bg-white rounded-lg shadow-lg p-6 mx-auto space-y-6 mt-6">
           <h2 className="text-2xl font-semibold text-gray-800">Sign Up</h2>
           <form onSubmit={handleSignup} className="space-y-4">
             <div className="flex gap-4">

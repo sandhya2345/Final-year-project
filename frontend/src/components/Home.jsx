@@ -75,14 +75,33 @@ const Home = () => {
               offering a one-stop solution for preventive and proactive care.
             </p>
             <div>
-              <h3 className="text-2xl font-bold mb-4">Advanced Disease Detection</h3>
-              <p className="text-lg mb-6">MedAhead utilizes cutting-edge machine learning technologies to detect diseases like diabetes and breast cancer. By analyzing patient data and medical images, the platform ensures early detection, accurate diagnostics to improve health outcomes.</p>
+              <div className="flex items-center space-x-3 mb-4">
+                <svg class="h-8 w-8 text-customTeal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+                <h3 className="text-2xl font-bold">Advanced Disease Detection</h3>
+                </div>
+                <p className="text-lg mb-6">MedAhead utilizes cutting-edge machine learning technologies to detect diseases like diabetes and breast cancer. By analyzing patient data and medical images, the platform ensures early detection, accurate diagnostics to improve health outcomes.</p>
+             
 
-              <h3 className="text-xl font-semibold mb-4">Feature 2</h3>
-              <p className="text-base mb-6">Something!!!!!!!!!!</p>
+              <div className="flex items-center space-x-3 mb-4">
+                <svg class="h-8 w-8 text-customTeal" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="7" cy="17" r="2" />  <circle cx="17" cy="17" r="2" />  <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />  <path d="M6 10h4m-2 -2v4" /></svg>
+                <h3 className="text-2xl font-bold">Personalized Health Recommendations</h3>
+              </div>
+              <p className="text-lg mb-6">
+                Get tailored health advice and lifestyle suggestions based on your medical history and detected conditions, ensuring optimal care.
+              </p>
 
-              <h3 className="text-xl font-semibold mb-4">Feature 3</h3>
-              <p className="text-base mb-6">Something!!!!!!!!!!</p>
+              <div className="flex items-center space-x-3 mb-4">
+                <svg className="h-8 w-8 text-customTeal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <h3 className="text-2xl font-bold">Appointment Scheduling</h3>
+              </div>
+
+
+              <p className="text-lg mb-6">
+                Schedule appointments with healthcare professionals or hospitals effortlessly through MedAhead.
+              </p>
+
             </div>
           </div>
 
@@ -94,9 +113,9 @@ const Home = () => {
               className="w-3/4 h-2/4 object-cover rounded-md ml-36"
             />
             {/* <img
-              src="https://via.placeholder.com/300x500"
+              src={circle_image}
               alt="Medical insights"
-              className="w-2/4 h-72 object-cover rounded-lg shadow-md"
+              className="w-3/4 h-2/4 object-cover rounded-md  ml-36 flex-row-reverse"
             /> */}
           </div>
         </div>
@@ -120,7 +139,7 @@ const Home = () => {
                   className="object-cover w-full h-full"
                 />
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-lg font-semibold mb-2 text-gray-800">BPKIHS</h3>
                 <p className="text-sm text-gray-600 mb-4">Kathmandu, Nepal</p>
@@ -182,7 +201,7 @@ const Home = () => {
               </div>
             </div>
 
-            
+
 
 
           </div>
