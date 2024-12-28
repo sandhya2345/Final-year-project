@@ -5,6 +5,8 @@ from django.db.models.signals import post_save
 class User(AbstractUser):
     username = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
+    phone = models.CharField(max_length=15, null=True, blank=True)
+    role = models.CharField(max_length=20, choices=[('patient', 'Patient'), ('doctor', 'Doctor'), ('admin', 'Admin')], default='patient')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

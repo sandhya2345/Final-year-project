@@ -1,13 +1,27 @@
 import React from 'react'
 import Navbar from './Navbar';
+import AuthContext from '../context/AuthContext';
+import { useContext } from 'react';
 
 const Login = () => {
+
+  const {loginUser} = useContext(AuthContext)
+  const handleSubmit = e => {
+    e.preventDefault()
+    const email = e.target.email.value
+    const password = e.target.password.value
+
+    email.length > 0 && loginUser(email, password)
+
+    console.log(email)
+    console.log(password)
+  }
   return (
     <div className="relative h-screen bg-gradient-to-b from-midTeal via-midTeal to-midTeal text-white pt-8 flex items-center justify-center">
       <Navbar />
       <div className="bg-white backdrop-blur-lg shadow-lg rounded-md p-14 w-[500px]">
         <h1 className="text-3xl font-semibold text-gray-900 text-center mb-4">MedAhead</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -19,7 +33,8 @@ const Login = () => {
               type="email"
               id="email"
               placeholder="Enter your email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              name='email'
             />
           </div>
           <div className="mb-4">
@@ -33,7 +48,8 @@ const Login = () => {
               type="password"
               id="password"
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md text-black focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              name='password'
             />
           </div>
           <button

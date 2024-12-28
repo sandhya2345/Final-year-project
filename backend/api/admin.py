@@ -3,7 +3,8 @@ from api.models import User, Profile
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['username', 'email']
+    list_display = ['username', 'email', 'phone', 'role']
+    list_editable = ['phone', 'role']
 
 class ProfileAdmin(admin.ModelAdmin):
     list_editable = ['verified']

@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{html,js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
@@ -13,7 +13,7 @@ export default {
       },
 
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'], // Add Poppins as a global font family
+        poppins: ['Poppins', 'sans-serif'], 
       },
     },
   },

@@ -1,75 +1,62 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(""); 
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [role, setRole] = useState("patient");
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); 
+
+  const { registerUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-
-    localStorage.setItem("isSignedUp", true);
-    navigate("/predict");
+  
+    // Validate password matching
+    if (password !== confirmPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
+  
+    try {
+      await registerUser(email, username, password, confirmPassword, phone, role);
+      setSuccessMessage("Registration Successful! Please log in.");
+      setError(""); // Clear any previous errors
+    } catch (err) {
+      console.log(err.response ? err.response.data : err.message);
+      setError(err.message || "Signup failed. Please try again.");
+    }
   };
 
   return (
-    <div className="relative h-screen bg-gradient-to-b from-customTeal via-midTeal to-midTeal text-white pt-8 flex items-center justify-center">
-      <div className="container mx-auto px-16 mt-4 flex flex-col lg:flex-row items-center gap-8">
-
-        <div className="lg:w-1/2 text-center lg:text-left space-y-6 mb-20">
-          <h1 className="text-4xl font-extrabold text-white">Welcome to MedAhead!</h1>
-          <p className="text-lg text-white">
-            Join us and explore the latest advancements in medical technology. Stay updated with
-            healthcare news, predict diseases early, and connect with top hospitals worldwide.
-          </p>
-          <ul className="text-teal-50 space-y-4">
-            <li className="flex items-center gap-2">
-              <span className="text-white text-2xl">✔</span> Disease Prediction System
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-white text-2xl">✔</span> Latest Medical News
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-white text-2xl">✔</span> Connect with Hospitals
-            </li>
-          </ul>
-          <p className="mt-8 text-center text-md -ml-60
-          text-white">
-          Already have an account?{' '}
-          <a href="/register" className="text-white
-           hover:underline">
-            Login here
-          </a>
-          </p>
+    <div className="relative h-full bg-gradient-to-b from-customTeal via-midTeal to-midTeal text-black pt-8 flex items-center justify-center">
+      <div className="container mx-auto px-16 mt-16 flex flex-col items-center gap-6">
+        <div className="w-full max-w-lg bg-white rounded-lg shadow-lg p-8 space-y-6">
+          <h2 className="text-2xl font-semibold text-gray-800 text-center">Sign Up</h2>
           
-        </div>
-
-       
-        <div className="lg:w-1/2/3 bg-white rounded-lg shadow-lg p-6 mx-auto space-y-6 mt-6">
-          <h2 className="text-2xl font-semibold text-gray-800">Sign Up</h2>
+          {successMessage && <p className="text-green-500 text-sm">{successMessage}</p>}  {/* Success message */}
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          
           <form onSubmit={handleSignup} className="space-y-4">
-            <div className="flex gap-4">
-              <div className="w-1/2">
-                <label htmlFor="firstName" className="block text-md font-medium text-gray-700">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  placeholder="First Name"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
-                />
-              </div>
-              <div className="w-1/2">
-                <label htmlFor="lastName" className="block text-md font-medium text-gray-700">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  placeholder="Last Name"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
-                />
-              </div>
+            <div>
+              <label htmlFor="username" className="block text-md font-medium text-gray-700">
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Your Name"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                required
+              />
             </div>
             <div>
               <label htmlFor="email" className="block text-md font-medium text-gray-700">
@@ -78,8 +65,10 @@ const Signup = () => {
               <input
                 type="email"
                 id="email"
-                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                required
               />
             </div>
             <div>
@@ -89,20 +78,54 @@ const Signup = () => {
               <input
                 type="text"
                 id="phone"
-                placeholder="Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                required
               />
             </div>
+            <div className="flex gap-4">
+              <div className="w-1/2">
+                <label htmlFor="password" className="block text-md font-medium text-gray-700">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                  required
+                />
+              </div>
+              <div className="w-1/2">
+                <label htmlFor="confirmPassword" className="block text-md font-medium text-gray-700">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                  required
+                />
+              </div>
+            </div>
             <div>
-              <label htmlFor="queries" className="block text-md font-medium text-gray-700">
-                Queries
+              <label htmlFor="role" className="block text-md font-medium text-gray-700">
+                Role
               </label>
-              <textarea
-                id="queries"
-                placeholder="Your Queries"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
-                rows="3"
-              />
+              <select
+                id="role"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              >
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+                <option value="admin">Admin</option>
+              </select>
             </div>
             <button
               type="submit"
@@ -111,6 +134,12 @@ const Signup = () => {
               Sign Up
             </button>
           </form>
+          <p className="text-sm text-center text-gray-600">
+            Already have an account?{" "}
+            <a href="/login" className="text-teal-600 hover:underline">
+              Login here
+            </a>
+          </p>
         </div>
       </div>
     </div>

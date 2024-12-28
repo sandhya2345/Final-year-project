@@ -1,58 +1,57 @@
-from api.models import User, Profile
-
+from api.models import User
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = User
-        fields = ['id','username','email']
-
+        fields = ('id', 'username', 'email')
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
-
-        token['full_name'] = user.profile.full_name 
+        
+       
+        token['full_name'] = user.profile.full_name
         token['username'] = user.username
         token['email'] = user.email
         token['bio'] = user.profile.bio
-        token['image'] = user.profile.image
+        token['image'] = str(user.profile.image)
         token['verified'] = user.profile.verified
-
+       
         return token
-    
+
+
 class RegisterSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    password = serializers.CharField(write_only=True, required=True)
+    password = serializers.CharField(
+        write_only=True, required=True, validators=[validate_password])
+    password2 = serializers.CharField(write_only=True, required=True)
+    phone = serializers.CharField(required=True)
+    role = serializers.ChoiceField(choices=['patient', 'doctor', 'admin'], default='patient')
 
     class Meta:
         model = User
-        fields = ['email','username','password','password2']
+        fields = ('email', 'username', 'password', 'password2', 'phone', 'role')
 
-        def validate(self,attrs):
-            if attrs['password'] != attrs['password2']:
-                raise serializers.ValidationError(
-                    {"password": "Your Password doesnnot Match"}
-            )
-            return attrs
+    def validate(self, attrs):
+        if attrs['password'] != attrs['password2']:
+            raise serializers.ValidationError(
+                {"password": "Password fields didn't match."})
+        return attrs
+
+    def create(self, validated_data):
+        user = User.objects.create(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            phone=validated_data['phone'],
+            role=validated_data['role']
+        )
+        user.set_password(validated_data['password'])
+        user.save()
         
-        def create(self,validated_data):
-            user = User.objects.create(
-                username=validated_data['username'],
-                email=validated_data['email']
-            )
-            user.set_password(validated_data['attrs'])
-            user.save()
-
-            return user
-        
-
-
-
-
-
+        return user
