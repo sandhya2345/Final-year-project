@@ -27,7 +27,7 @@ const Signup = () => {
     try {
       await registerUser(email, username, password, confirmPassword, phone, role);
       setSuccessMessage("Registration Successful! Please log in.");
-      setError(""); // Clear any previous errors
+      setError(""); 
     } catch (err) {
       console.log(err.response ? err.response.data : err.message);
       setError(err.message || "Signup failed. Please try again.");
