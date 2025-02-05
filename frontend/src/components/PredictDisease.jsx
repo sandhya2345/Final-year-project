@@ -1,103 +1,37 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const diseases = [
+  { name: 'Diabetes', path: '/diabetes' },
+  { name: 'Hypertension', path: '/hypertension' },
+  { name: 'Asthma', path: '/asthma' },
+  { name: 'Heart Disease', path: '/heart-disease' },
+  { name: 'Arthritis', path: '/arthritis' },
+  { name: 'Obesity', path: '/obesity' },
+  { name: 'Migraine', path: '/migraine' },
+  { name: 'Liver Disease', path: '/liver-disease' },
+  { name: 'Kidney Disease', path: '/kidney-disease' },
+  { name: 'Thyroid Disorder', path: '/thyroid-disorder' }
+];
 
 const PredictDisease = () => {
-  return (
-    <div className="relative h-ful bg-gradient-to-b from-midTeal
-      via-midTeal to-midTeal text-white pt-12
-     flex items-center justify-center">
-      <div className="w-[35%] bg-white bg-opacity-70
-       backdrop-blur-md text-white
-       p-6 mb-44
-       ">
-        <h2 className="text-2xl font-bold mb-6">Multiple Disease Detection</h2>
-        <ul className="space-y-5">
-          <li>
-            <button className="w-full text-left bg-midTeal
-             hover:bg-teal-600 text-white py-2 px-4 rounded">
-              Diabetes Prediction System
-            </button>
-          </li>
-          <li>
-            <button className="w-full text-left bg-midTeal
-             hover:bg-teal-600 text-white py-2 px-4 rounded">
-              Heart Disease Prediction
-            </button>
-          </li>
-          <li>
-            <button className="w-full text-left bg-midTeal
-             hover:bg-teal-600 text-white py-2 px-4 rounded">
-              Cancer Detection System
-            </button>
-          </li>
-          <li>
-            <button className="w-full text-left bg-midTeal
-             hover:bg-teal-600 text-white py-2 px-4 rounded">
-              Kidney Disease Prediction
-            </button>
-          </li>
-        </ul>
-      </div>
+  const navigate = useNavigate();
 
-     
-      <div className="w-[85%]
-      p-16  mb-18
-      ">
-        <h1 className="text-3xl font-bold mb-6  ">Diabetes Prediction System</h1>
-        <form className="space-y-6">
-          <div>
-            <label htmlFor="pregnancies" className="block text-lg font-medium">
-              Number of Pregnancies:
-            </label>
-            <input
-              type="number"
-              id="pregnancies"
-              placeholder="Enter number of pregnancies"
-              className="w-full mt-2 px-4 py-2 border rounded focus:ring-2  focus:outline-none"
-            />
-          </div>
-          <div>
-            <label htmlFor="glucose" className="block text-lg font-medium">
-              Glucose Level:
-            </label>
-            <input
-              type="number"
-              id="glucose"
-              placeholder="Enter glucose level"
-              className="w-full mt-2 px-4 py-2 border rounded focus:ring-2  focus:outline-none"
-            />
-          </div>
-          <div>
-            <label htmlFor="insulin" className="block text-lg font-medium">
-              Insulin Level:
-            </label>
-            <input
-              type="number"
-              id="insulin"
-              placeholder="Enter insulin level"
-              className="w-full mt-2 px-4 py-2 border rounded focus:ring-2  focus:outline-none"
-            />
-          </div>
-          <div>
-            <label htmlFor="bmi" className="block text-lg font-medium">
-              BMI Value:
-            </label>
-            <input
-              type="number"
-              id="bmi"
-              placeholder="Enter BMI value"
-              className="w-full mt-2 px-4 py-2 border rounded focus:ring-2 focus:outline-none"
-            />
-          </div>
-          <button 
-            type="submit"
-            className="w-[50%] bg-customTeal  text-white py-3 rounded hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+  return (
+    <div className="flex min-h-screen bg-gradient-to-b from-midTeal via-midTeal to-midTeal text-white justify-center items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-10 max-w-5xl">
+        {diseases.map((disease, index) => (
+          <div
+            key={index}
+            className="p-8 bg-white bg-opacity-10  shadow-lg backdrop-blur-lg cursor-pointer transition-transform transform hover:scale-105 hover:bg-opacity-20"
+            onClick={() => navigate(disease.path)}
           >
-            Predict
-          </button>
-        </form>
+            <h2 className="text-2xl font-semibold text-center">{disease.name}</h2>
+          </div>
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PredictDisease
+export default PredictDisease;

@@ -12,6 +12,7 @@ import Signup from './components/Signup';
 import Dashboard from './components/Dashboard'; 
 import PrivateRoute from './utils/PrivateRoute';
 import { AuthProvider } from './context/AuthContext';
+import Diabetes from './components/Diabetes';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/hospital" element={<Hospital />} />
         <Route path="/news" element={<News />} />
         <Route path="/predict" element={<PredictDisease />} />
+        <Route path="/diabetes" element={<Diabetes />} />
         <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
       </Routes>
     </AuthProvider>
