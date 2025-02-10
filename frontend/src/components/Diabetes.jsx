@@ -15,21 +15,23 @@ const Diabetes = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare data for the request
     const formData = {
-      pregnancies,
-      glucose,
-      bloodPressure,
-      skinThickness,
-      insulin,
-      bmi,
-      diabetesPedigreeFunction,
-      age
+      Pregnancies: pregnancies,
+      Glucose: glucose,
+      BloodPressure: bloodPressure,
+      SkinThickness: skinThickness,
+      Insulin: insulin,
+      BMI: bmi,
+      DiabetesPedigreeFunction: diabetesPedigreeFunction,
+      Age: age
     };
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/predict/diabetes/', formData);
-      setPrediction(response.data.prediction); // Assume the backend returns the prediction
+      const response = await axios.post('http://127.0.0.1:8000/diseases/api/predict/', formData, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      setPrediction(response.data.message); // Store the exact message from backend
     } catch (error) {
       console.error('Error predicting disease:', error);
     }
@@ -38,7 +40,7 @@ const Diabetes = () => {
   return (
     <div className="flex min-h-screen bg-gradient-to-b from-midTeal via-midTeal to-midTeal text-white">
       <div className="w-3/4 ml-[12%] flex justify-center items-center py-20">
-        <div className="w-[80%] bg-white bg-opacity-0  p-4 rounded-sm ">
+        <div className="w-[80%] bg-white bg-opacity-0 p-4 rounded-sm">
           <h1 className="text-4xl font-bold mb-6 text-white text-center">Diabetes Prediction System</h1>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-6">
@@ -132,10 +134,10 @@ const Diabetes = () => {
             </button>
           </form>
 
-          {prediction !== null && (
+          {prediction && (
             <div className="mt-6 text-center">
-              <h2 className="text-2xl font-bold text-black">
-                Prediction: {prediction === 1 ? 'Diabetes Detected' : 'No Diabetes'}
+              <h2 className="text-2xl font-bold text-white">
+                Prediction: {prediction}
               </h2>
             </div>
           )}
