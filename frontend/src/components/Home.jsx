@@ -60,55 +60,55 @@ const Home = () => {
 
       {/* About Section */}
       <section className="bg-white text-customTeal text-left py-16">
-  <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start">
-    <div className="lg:w-1/2 px-4">
-      <h2 className="text-4xl lg:text-5xl font-bold mb-6">Why MedAhead?</h2>
-      <p className="text-3xl mt-12">
-        <span className="text-3xl lg:text-5xl font-bold">90%</span> of patients using MedAhead
-        are satisfied with their recovery.
-      </p>
-    </div>
-    <div className="lg:w-1/2 px-12 mt-16">
-      <p className="text-xl font-medium">
-        MedAhead enhances healthcare accessibility by integrating disease detection,
-        hospital information, and real-time health updates. Our platform bridges the
-        gap between healthcare providers and individuals, ensuring a seamless experience
-        for preventive and proactive care.
-      </p>
-    </div>
-  </div>
-</section>
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start">
+          <div className="lg:w-1/2 px-4">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Why MedAhead?</h2>
+            <p className="text-3xl mt-12">
+              <span className="text-3xl lg:text-5xl font-bold">90%</span> of patients using MedAhead
+              are satisfied with their recovery.
+            </p>
+          </div>
+          <div className="lg:w-1/2 px-12 mt-16">
+            <p className="text-xl font-medium">
+              MedAhead enhances healthcare accessibility by integrating disease detection,
+              hospital information, and real-time health updates. Our platform bridges the
+              gap between healthcare providers and individuals, ensuring a seamless experience
+              for preventive and proactive care.
+            </p>
+          </div>
+        </div>
+      </section>
 
-{/* Features Section */}
-<section className="bg-gradient-to-r from-white via-white to-lightBlue text-customTeal py-2">
-  <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
-    {/* Left Content */}
-    <div className="lg:w-1/2 px-4">
-      <h2 className="text-3xl lg:text-5xl font-medium mb-6">
-        Shift care to the home without sacrificing quality
-      </h2>
-      <p className="text-xl mb-6">
-        Improve provider efficiency with Clinical Intelligence, utilizing aggregate and patient-level 
-        data to automatically identify education needs, boost engagement, and accelerate the recovery journey for each patient.
-      </p>
-      <button className="bg-customTeal text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-darkTeal transition">
-        Learn More →
-      </button>
-    </div>
+      {/* Features Section */}
+      <section className="bg-gradient-to-r from-white via-white to-lightBlue text-customTeal py-2">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
+          {/* Left Content */}
+          <div className="lg:w-1/2 px-4">
+            <h2 className="text-3xl lg:text-5xl font-medium mb-6">
+              Shift care to the home without sacrificing quality
+            </h2>
+            <p className="text-xl mb-6">
+              Improve provider efficiency with Clinical Intelligence, utilizing aggregate and patient-level
+              data to automatically identify education needs, boost engagement, and accelerate the recovery journey for each patient.
+            </p>
+            <button className="bg-customTeal text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-darkTeal transition">
+              Learn More →
+            </button>
+          </div>
 
-    {/* Right Circular Image */}
-    <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0 relative">
-      <div className="relative w-80 h-80 rounded-full border-2 border-teal-100 flex items-center justify-center">
-        <img 
-          src={circle_image}
-          alt="Patient using MedAhead" 
-          className="w-full h-full object-cover rounded-full"
-        />
-        <div className="absolute w-full h-full border-4 border-dotted border-teal-100 rounded-full animate-spin-slow"></div>
-      </div>
-    </div>
-  </div>
-</section>
+          {/* Right Circular Image */}
+          <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0 relative">
+            <div className="relative w-80 h-80 rounded-full border-2 border-teal-100 flex items-center justify-center">
+              <img
+                src={circle_image}
+                alt="Patient using MedAhead"
+                className="w-full h-full object-cover rounded-full"
+              />
+              <div className="absolute w-full h-full border-4 border-dotted border-teal-100 rounded-full animate-spin-slow"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -192,9 +192,6 @@ const Home = () => {
               </div>
             </div>
 
-
-
-
           </div>
         </div>
       </section>
@@ -202,7 +199,7 @@ const Home = () => {
 
 
       {/*News section */}
-      <section className="bg-gradient-to-r from-white via-white to-midTeal text-customTeal py-16 h-screen">
+      <section className="bg-white text-customTeal py-16 h-screen">
         <div className="max-w-6xl mx-auto">
 
           <h2 className="text-3xl lg:text-4xl font-semibold mb-12 text-left">

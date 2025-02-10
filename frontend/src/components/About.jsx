@@ -35,7 +35,7 @@ const About = () => {
             alt="Healthcare Transformation Left"
             className="w-full h-auto object-cover rounded-lg"
           />
-          <div className="absolute inset-0 bg-gray-900 bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute inset-0 bg-black bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <p className="text-white text-xl font-semibold">Left Image Caption</p>
           </div>
         </div>
@@ -47,7 +47,7 @@ const About = () => {
             alt="Healthcare Transformation Right"
             className="w-full h-auto object-cover rounded-lg"
           />
-          <div className="absolute inset-0 bg-gray-900 bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute inset-0 bg-black bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <p className="text-white text-xl font-semibold">Right Image Caption</p>
           </div>
         </div>
@@ -56,7 +56,7 @@ const About = () => {
       {/* About MedAhead Section */}
       <section
   id="about-medahead"
-  className="bg-gradient-to-t from-white via-white to-midTeal px-8 lg:px-24 py-8 text-midTeal"
+  className="bg-gradient-to-t from-white via-white to-white px-8 lg:px-24 py-8 text-midTeal"
 >
   <div className="flex flex-col lg:flex-row items-center gap-8">
     {/* Left Content */}
