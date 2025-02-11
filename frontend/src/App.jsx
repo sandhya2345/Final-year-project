@@ -13,6 +13,7 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './utils/PrivateRoute';
 import { AuthProvider } from './context/AuthContext';
 import Diabetes from './components/Diabetes';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/diabetes" element={<Diabetes />} />
         <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
       </Routes>
+      <Footer/>
     </AuthProvider>
   );
 }

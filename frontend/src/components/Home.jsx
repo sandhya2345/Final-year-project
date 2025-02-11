@@ -9,6 +9,7 @@ import grandma from "../assets/grandma.jpg"
 import circle_image from "../assets/circle_image.png"
 import doctor2 from "../assets/doctor2.jpg"
 import bp from "../assets/bp.jpg"
+import Footer from './Footer';
 
 const Home = () => {
   return (
@@ -59,8 +60,7 @@ const Home = () => {
 
 
       {/* About Section */}
-      <section className="bg-gradient-to-b from-midTeal/30 to-white text-customTeal text-left py-16">
-
+      <section className="bg-white text-customTeal text-left py-16">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start">
           <div className="lg:w-1/2 px-4">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Why MedAhead?</h2>
@@ -81,7 +81,7 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="bg-gradient-to-r from-white via-white to-lightBlue text-customTeal py-2">
+      <section className="bg-white to-lightBlue text-customTeal py-2">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
           {/* Left Content */}
           <div className="lg:w-1/2 px-4">
@@ -262,8 +262,9 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      <Footer />
     </div>
+
   );
 };
 
