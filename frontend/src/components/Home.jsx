@@ -23,7 +23,7 @@ const Home = () => {
           <p className="text-lg mb-6">
             Seamlessly integrating cutting-edge innovation with patient-centered care, empowering healthcare teams to deliver precise, value-driven diagnostic excellence. Greatest way to invoke people ideas and great acheivement as its followed with a companion
           </p>
-          <button className="px-6 py-3 bg-white text-customTeal font-lg rounded-md shadow-md hover:bg-teal-100 transition">
+          <button className="px-6 py-3 bg-white text-customTeal font-semibold rounded-md shadow-md hover:bg-teal-100 transition">
             Book A Demo
           </button>
         </div>
@@ -59,7 +59,8 @@ const Home = () => {
 
 
       {/* About Section */}
-      <section className="bg-white text-customTeal text-left py-16">
+      <section className="bg-gradient-to-b from-midTeal/30 to-white text-customTeal text-left py-16">
+
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start">
           <div className="lg:w-1/2 px-4">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Why MedAhead?</h2>
@@ -82,6 +83,34 @@ const Home = () => {
       {/* Features Section */}
       <section className="bg-gradient-to-r from-white via-white to-lightBlue text-customTeal py-2">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
+          {/* Left Content */}
+          <div className="lg:w-1/2 px-4">
+            <h2 className="text-3xl lg:text-5xl font-medium mb-6">
+              Shift care to the home without sacrificing quality
+            </h2>
+            <p className="text-xl mb-6">
+              Improve provider efficiency with Clinical Intelligence, utilizing aggregate and patient-level
+              data to automatically identify education needs, boost engagement, and accelerate the recovery journey for each patient.
+            </p>
+            <button className="bg-customTeal text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-darkTeal transition">
+              Learn More →
+            </button>
+          </div>
+
+          {/* Right Circular Image */}
+          <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0 relative">
+            <div className="relative w-80 h-80 rounded-full border-2 border-teal-100 flex items-center justify-center">
+              <img
+                src={circle_image}
+                alt="Patient using MedAhead"
+                className="w-full h-full object-cover rounded-full"
+              />
+              <div className="absolute w-full h-full border-4 border-dotted border-teal-100 rounded-full animate-spin-slow"></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row-reverse items-center py-6">
           {/* Left Content */}
           <div className="lg:w-1/2 px-4">
             <h2 className="text-3xl lg:text-5xl font-medium mb-6">
