@@ -5,7 +5,7 @@ from .predict import predict_diabetes
 
 class DiabetesPredictionAPIView(APIView):
     def post(self, request, *args, **kwargs):
-        # Get the input data from the POST request body
+       
         input_data = [
             request.data.get('Pregnancies'),
             request.data.get('Glucose'),
