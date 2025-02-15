@@ -58,7 +58,6 @@ const Home = () => {
         </div>
       </section>
 
-
       {/* About Section */}
       <section className="bg-white text-customTeal text-left py-16">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start">
@@ -139,7 +138,31 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="bg-white text-customTeal text-left py-16">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-semibold mb-12 text-center">Our Services</h2>
 
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+            {[
+              { name: "Book Appointment", icon: "📅" },
+              { name: "Disease Prediction", icon: "🔬" },
+              { name: "Hospitals Nearby", icon: "🏥" },
+              { name: "News & Articles", icon: "📰" },
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-midTeal text-white rounded-lg p-8 transform transition duration-500 hover:scale-105 hover:bg-customTeal hover:shadow-xl"
+              >
+                <div className="text-5xl mb-4 transition duration-300 ease-in-out hover:text-white">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-semibold">{service.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Hospital Section */}
 
