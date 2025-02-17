@@ -35,7 +35,7 @@ const Signup = () => {
 
   return (
     <div className="relative h-full bg-gradient-to-b from-midTeal via-midTeal to-midTeal text-white pt-2 flex items-center justify-center">
-      <div className="bg-white backdrop-blur-lg shadow-lg rounded-md p-12 w-[900px] flex items-center min-h-[520px] mt-20">
+      <div className="bg-white backdrop-blur-lg shadow-lg rounded-md p-14 w-[900px] flex items-center min-h-[520px] mt-20">
         
         <div className="w-1/2">
           <h1 className="text-4xl font-semibold text-gray-900 text-center mb-6">MedAhead</h1>

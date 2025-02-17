@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import AI from "../assets/AI.jpg"
 import doctor from "../assets/doctor.jpeg"
-import healthy from "../assets/healthy.jpg"
+import man from "../assets/man.jpg"
 import fitness from "../assets/fitness.jpg"
 import image from "../assets/image.jpg"
 import grandma from "../assets/grandma.jpg"
@@ -37,7 +37,7 @@ const Home = () => {
               className="w-32 h-40 lg:w-44 lg:h-60 rounded-lg object-cover shadow-lg mb-32 ml-60"
             />
             <img
-              src={healthy}
+              src={man}
               alt="Placeholder 1"
               className="w-32 h-40 lg:w-44 lg:h-60 rounded-lg object-cover shadow-lg mt-32 ml-32"
             />

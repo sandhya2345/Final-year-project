@@ -1,5 +1,6 @@
 import React from "react";
 import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin, Heart } from "lucide-react";
+import FooterImage from "../assets/FooterPic.png";
 
 const Footer = () => {
   return (
@@ -13,11 +14,11 @@ const Footer = () => {
             Delivering the best medical solutions to ensure a healthier tomorrow.
           </p>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Company Info */}
           <div>
             <h2 className="text-3xl font-bold">MedAhead</h2>
-            <p className="mt-3 text-gray-200 flex items-center gap-2 text-lg">
+            <p className="mt-4 text-gray-200 flex items-center gap-2 text-lg">
               <Heart className="text-white" /> Dedicated to your well-being.
             </p>
           </div>
@@ -49,7 +50,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media Section */}
-        <div className="flex justify-center mt-8 gap-5">
+        <div className="flex justify-center mt-4 gap-5">
           <a href="#" className="w-12 h-12 flex items-center justify-center bg-white text-midTeal rounded-full hover:bg-gray-300 transition shadow-md">
             <Facebook size={22} />
           </a>
@@ -60,7 +61,8 @@ const Footer = () => {
             <Linkedin size={22} />
           </a>
         </div>
-        <div className="border-t border-gray-300 mt-8 pt-4 text-center text-gray-300 text-lg">
+
+        <div className="border-t border-gray-300 mt-8 pt-6 text-center text-gray-300 text-lg">
           © {new Date().getFullYear()} MedAhead. All Rights Reserved.
         </div>
       </div>

@@ -44,7 +44,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex flex-1 justify-center text-lg">
+                <div className="hidden md:flex flex-1 justify-center text-xl">
                     <ul className="flex space-x-10">
                         {[{ name: "Home", path: "/" }, { name: "About us", path: "/about" }, { name: "Hospitals", path: "/hospital" }, { name: "News", path: "/news" }].map((item, index) => (
                             <li key={index}>
