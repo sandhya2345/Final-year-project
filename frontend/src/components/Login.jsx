@@ -20,7 +20,7 @@ const Login = () => {
   }
 
   return (
-    <div className="relative h-screen bg-gradient-to-b from-midTeal via-midTeal to-midTeal text-white pt-12 flex items-center justify-center">
+    <div className="relative h-screen bg-gradient-to-b from-midTeal via-midTeal to-midTeal text-white pt-16 flex items-center justify-center">
       <Navbar />
       <div className="bg-white backdrop-blur-lg shadow-lg rounded-md p-14 w-[800px] flex flex-col items-center min-h-[500px] relative">
         <h1 className="absolute top-12 text-4xl font-semibold text-gray-900 text-center">
