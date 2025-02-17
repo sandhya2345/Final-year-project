@@ -3,15 +3,16 @@ import { useNavigate } from 'react-router-dom';
 
 const diseases = [
   { name: 'Diabetes', path: '/diabetes' },
+  { name: 'Kidney Disease', path: '/kidney-disease' },
+  { name: 'Thyroid Disorder', path: '/thyroid-disorder' },
+  { name: 'Heart Disease', path: '/heart-disease' },
+  { name: 'Lung Disease', path: '/liver-disease' },
   { name: 'Hypertension', path: '/hypertension' },
   { name: 'Asthma', path: '/asthma' },
-  { name: 'Heart Disease', path: '/heart-disease' },
   { name: 'Arthritis', path: '/arthritis' },
   { name: 'Obesity', path: '/obesity' },
   { name: 'Migraine', path: '/migraine' },
-  { name: 'Liver Disease', path: '/liver-disease' },
-  { name: 'Kidney Disease', path: '/kidney-disease' },
-  { name: 'Thyroid Disorder', path: '/thyroid-disorder' }
+
 ];
 
 const PredictDisease = () => {
@@ -19,7 +20,7 @@ const PredictDisease = () => {
 
   return (
     <div className="flex min-h-screen bg-gradient-to-b from-midTeal via-midTeal to-midTeal text-white justify-center items-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-10 max-w-5xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-12 max-w-5xl mt-10">
         {diseases.map((disease, index) => (
           <div
             key={index}

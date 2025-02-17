@@ -20,14 +20,14 @@ const Navbar = () => {
     }, []);
 
     useEffect(() => {
-        setMenuOpen(false); // Close menu on route change
-        setDropdownOpen(false); // Close dropdown on route change
+        setMenuOpen(false); 
+        setDropdownOpen(false);
     }, [location]);
 
     const handleLogout = () => {
         setAuthTokens(null);
         setUser(null);
-        localStorage.removeItem("authToken"); // Clear from local storage
+        localStorage.removeItem("authToken"); 
     };
 
     return (
@@ -37,7 +37,7 @@ const Navbar = () => {
                 <div className="flex items-center">
                     <Link to="/" className="flex items-center">
                         <img src={logo} alt="MedAhead Logo" className="h-16" />
-                        <h2 className={`text-3xl font-medium ${isScrolled ? "text-customTeal" : "text-white"}`}>
+                        <h2 className={`text-4xl font-large ${isScrolled ? "text-customTeal" : "text-white"}`}>
                             MedAhead
                         </h2>
                     </Link>
@@ -114,8 +114,8 @@ const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center">
-                    <button onClick={() => setMenuOpen(!menuOpen)} className="text-white focus:outline-none">
-                        {menuOpen ? <X size={30} className="text-customTeal" /> : <Menu size={30} />}
+                    <button onClick={() => setMenuOpen(!menuOpen)} className="text-teal-400 focus:outline-none">
+                        {menuOpen ? <X size={30} className="text-customTeal" /> : <Menu size={40} />}
                     </button>
                 </div>
             </nav>

@@ -39,7 +39,7 @@ const Footer = () => {
               <Phone /> +1 234 567 890
             </p>
             <p className="mt-2 flex items-center gap-2 text-gray-200">
-              <MapPin /> 123 Health St, City
+              <MapPin /> 123 Health St, Itahari
             </p>
           </div>
         </div>
