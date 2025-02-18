@@ -24,6 +24,7 @@ urlpatterns = [
     path("api/", include("api.urls")),
     path('diseases/', include('diseases.urls')),
     path('hospitals/', include('hospitals.urls')),
+    path('news/', include('news.urls')),
 ]
 
 if settings.DEBUG:
