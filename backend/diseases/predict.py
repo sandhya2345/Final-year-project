@@ -9,6 +9,8 @@ scaler = joblib.load('diseases/ml_models/scaler.pkl')
 # Load the saved model for Thyroid disease prediction
 thyroid_model = joblib.load('diseases/ml_models/thyroid_model.pkl')
 
+kidney = joblib.load('diseases/ml_models/kidney.pkl')
+
 def predict_diabetes(input_data):
     # Convert the input data to numpy array
     input_data_as_numpy_array = np.asarray(input_data)
@@ -35,3 +37,11 @@ def predict_thyroid(input_data):
     target_labels = {0: "Normal", 1: "Hypothyroid", 2: "Hyperthyroid"}
     
     return target_labels.get(prediction[0], 'Unknown')
+
+# Prediction function for Chronic Kidney Disease (CKD)
+def predict_ckd(input_data):
+    input_data_as_numpy_array = np.asarray(input_data)
+    input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+    prediction = kidney.predict(input_data_reshaped)
+
+    return "The patient has Chronic Kidney Disease (CKD)." if prediction[0] == 1 else "The patient does NOT have Chronic Kidney Disease (CKD)."
