@@ -5,7 +5,7 @@ const diseases = [
   { name: 'Diabetes', path: '/diabetes' },
   { name: 'Kidney Disease', path: '/kidney' },
   { name: 'Thyroid Disorder', path: '/thyroid' },
-  { name: 'Heart Disease', path: '/heart-disease' },
+  { name: 'Heart Disease', path: '/heart' },
   { name: 'Lung Disease', path: '/liver-disease' },
   { name: 'Hypertension', path: '/hypertension' },
   { name: 'Asthma', path: '/asthma' },

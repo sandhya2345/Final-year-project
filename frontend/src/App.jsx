@@ -17,6 +17,7 @@ import Footer from './components/Footer';
 import Thyroid from './components/Thyroid';
 import Details from './components/HospitalDetail';
 import Kidney from './components/Kidney';
+import Heart from './components/Heart';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
         <Route path="/hospitaldetails" element={<Details />} />
         <Route path="/kidney" element={<Kidney />} />
+        <Route path="/heart" element={<Heart />} />
       </Routes>
       <Footer/>
     </AuthProvider>
