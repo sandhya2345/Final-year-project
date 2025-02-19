@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Navbar from './Navbar';
 import AI from "../assets/AI.jpg"
 import doctor from "../assets/doctor.jpeg"
@@ -8,21 +8,45 @@ import image from "../assets/image.jpg"
 import grandma from "../assets/grandma.jpg"
 import circle_image from "../assets/circle_image.png"
 import doctor2 from "../assets/doctor2.jpg"
-import bp from "../assets/bp.jpg"
 import Footer from './Footer';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const [hospitals, setHospitals] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch hospital data from Django API
+    axios
+      .get("http://127.0.0.1:8000/hospitals/api/hospitals/")
+      .then((response) => {
+        setHospitals(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching hospital data", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="relative h-[110vh] bg-gradient-to-r from-midTeal via-midTeal to-white text-white pt-24">
       <Navbar />
       {/* Hero Section */}
-      <section className="flex flex-col lg:flex-row items-center justify-between h-full px-4 lg:px-16">
+      <section className="flex flex-col lg:flex-row items-center justify-between h-full px-4 lg:px-20">
         <div className="max-w-xl text-center lg:text-left mb-24">
           <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-4">
             Transforming Disease Detection with Advanced Technology
           </h1>
           <p className="text-lg mb-6">
-            Seamlessly integrating cutting-edge innovation with patient-centered care, empowering healthcare teams to deliver precise, value-driven diagnostic excellence. Greatest way to invoke people ideas and great acheivement as its followed with a companion
+            Seamlessly integrating cutting-edge innovation with patient-centered care, empowering healthcare teams to deliver precise, value-driven diagnostic excellence. 
           </p>
           <button className="px-6 py-3 bg-white text-customTeal font-semibold rounded-md shadow-md hover:bg-teal-100 transition">
             Book A Demo
@@ -59,8 +83,8 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="bg-white text-customTeal text-left py-16">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start">
+      <section className="bg-white text-customTeal text-left py-16 px-20 ">
+        <div className="max-w-6xl flex flex-col lg:flex-row items-start">
           <div className="lg:w-1/2 px-4">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Why MedAhead?</h2>
             <p className="text-3xl mt-12">
@@ -79,7 +103,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+
       <section className="bg-white to-lightBlue text-customTeal py-2">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
           {/* Left Content */}
@@ -138,12 +162,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-white text-customTeal text-left py-16">
+      <section className="bg-white text-customTeal text-left py-16 px-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl lg:text-5xl font-semibold mb-12 text-center">Our Services</h2>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-4">
             {[
               { name: "Book Appointment", icon: "📅" },
               { name: "Disease Prediction", icon: "🔬" },
@@ -165,89 +188,45 @@ const Home = () => {
       </section>
 
       {/* Hospital Section */}
-
       <section className="bg-gradient-to-r from-customTeal via-midTeal to-gray-200 text-gray-800 py-16">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-3xl lg:text-4xl font-semibold mb-12 text-white text-left">
-            List of Hospitals
+            Featured Hospitals
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {hospitals.slice(0, 4).map((hospital) => (
+              <div
+                key={hospital.id}
+                className="bg-white shadow-lg rounded-md overflow-hidden transform transition duration-300 hover:scale-105 
+                     flex flex-col h-[400px] w-full"
+              >
+                <div className="h-56 w-full overflow-hidden">
+                  <img
+                    src={hospital.image}
+                    alt={hospital.name}
+                    className="object-cover w-full h-full rounded-t-xl"
+                  />
+                </div>
 
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <img
-                  src={bp}
-                  alt="Hospital Name"
-                  className="object-cover w-full h-full"
-                />
-              </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{hospital.name}</h3>
+                  <p className="text-sm text-gray-600 mb-1">
+                    <span className="font-medium text-gray-700">📍 Location:</span> {hospital.location}
+                  </p>
+                  <p className="text-sm text-gray-600 mb-4 flex-grow truncate">
+                    <span className="font-medium text-gray-700">🏥 Specialties:</span> {hospital. specialization}
+                  </p>
 
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2 text-gray-800">BPKIHS</h3>
-                <p className="text-sm text-gray-600 mb-4">Kathmandu, Nepal</p>
-                <button className="px-4 py-2 bg-customTeal text-white text-sm font-medium rounded-md hover:bg-teal-600 transition">
-                  View Details
-                </button>
+                  <button className="w-full px-5 py-2 bg-customTeal text-white text-sm font-medium rounded-md hover:bg-teal-600 transition-all mt-auto">
+                    View Details
+                  </button>
+                </div>
               </div>
-            </div>
-
-
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <img
-                  src={doctor}
-                  alt="Hospital Name"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2 text-gray-800">Kathmandu Medical</h3>
-                <p className="text-sm text-gray-600 mb-4">Kathmandu</p>
-                <button className="px-4 py-2 bg-customTeal text-white text-sm font-medium rounded hover:bg-teal-600 transition">
-                  View Details
-                </button>
-              </div>
-            </div>
-
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <img
-                  src={doctor}
-                  alt="Hospital Name"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2 text-gray-800">Nobel Hospital</h3>
-                <p className="text-sm text-gray-600 mb-4">Biratnagar</p>
-                <button className="px-4 py-2 bg-customTeal text-white text-sm font-medium rounded hover:bg-teal-600 transition">
-                  View Details
-                </button>
-              </div>
-            </div>
-
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <img
-                  src={image}
-                  alt="Hospital Name"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2 text-gray-800">City hospital</h3>
-                <p className="text-sm text-gray-600 mb-4">Kathmandu</p>
-                <button className="px-4 py-2 bg-customTeal text-white text-sm font-medium rounded hover:bg-teal-600 transition">
-                  View Details
-                </button>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
-
 
 
       {/*News section */}

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const diseases = [
   { name: 'Diabetes', path: '/diabetes' },
-  { name: 'Kidney Disease', path: '/kidney-disease' },
+  { name: 'Kidney Disease', path: '/kidney' },
   { name: 'Thyroid Disorder', path: '/thyroid' },
   { name: 'Heart Disease', path: '/heart-disease' },
   { name: 'Lung Disease', path: '/liver-disease' },

@@ -16,24 +16,27 @@ const Thyroid = () => {
     e.preventDefault();
 
     const formData = {
-      Age: age,
-      Sex: sex,
-      TT4: tt4,
-      T3: t3,
-      T4U: t4u,
-      FTI: fti,
-      TSH: tsh,
-      Pregnant: pregnant,
+      Age: Number(age),
+      Sex: Number(sex), 
+      TT4: parseFloat(tt4), 
+      T3: parseFloat(t3),
+      T4U: parseFloat(t4u),
+      FTI: parseFloat(fti),
+      TSH: parseFloat(tsh),
+      Pregnant: Number(pregnant), // Convert to number
     };
 
+    console.log("Sending Data:", formData); // Debugging log
+
     try {
-      const response = await axios.post('http://127.0.0.1:8000/thyroid/api/predict/', formData, {
+      const response = await axios.post('http://127.0.0.1:8000/diseases/predict/thyroid/', formData, {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      setPrediction(response.data.message); // Store the exact message from backend
+      console.log("Response:", response.data); // Debugging log
+      setPrediction(response.data.message);
     } catch (error) {
-      console.error('Error predicting thyroid:', error);
+      console.error("Error predicting thyroid:", error.response ? error.response.data : error);
     }
   };
 

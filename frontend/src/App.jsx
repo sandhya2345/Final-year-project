@@ -15,6 +15,8 @@ import { AuthProvider } from './context/AuthContext';
 import Diabetes from './components/Diabetes';
 import Footer from './components/Footer';
 import Thyroid from './components/Thyroid';
+import Details from './components/HospitalDetail';
+import Kidney from './components/Kidney';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/diabetes" element={<Diabetes />} />
         <Route path="/thyroid" element={<Thyroid />} />
         <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
+        <Route path="/hospitaldetails" element={<Details />} />
+        <Route path="/kidney" element={<Kidney />} />
       </Routes>
       <Footer/>
     </AuthProvider>

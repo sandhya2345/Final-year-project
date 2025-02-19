@@ -114,7 +114,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center">
-                    <button onClick={() => setMenuOpen(!menuOpen)} className="text-teal-400 focus:outline-none">
+                    <button onClick={() => setMenuOpen(!menuOpen)} className="text-black focus:outline-none">
                         {menuOpen ? <X size={30} className="text-customTeal" /> : <Menu size={40} />}
                     </button>
                 </div>

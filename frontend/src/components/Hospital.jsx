@@ -99,8 +99,7 @@ const Hospital = () => {
           </div>
 
           {/* Filter Section */}
-          <div className="w-full md:w-[30%] bg-white text-black opacity-100 backdrop-blur-md p-6 shadow-md h-auto max-h-[450px] overflow-auto">
-            {/* You can add custom filter controls here */}
+          <div className="w-full md:w-[30%] bg-white text-black opacity-100 backdrop-blur-md p-6 shadow-md h-[400px] ">
             <h3 className="text-lg font-semibold mb-4">Filters</h3>
             <div>
               <label className="block mb-2">Hospital Name</label>
