@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .predict import predict_diabetes, predict_thyroid, predict_ckd
+from .predict import predict_diabetes, predict_thyroid, predict_ckd, predict_heart
 
 class DiabetesPredictionAPIView(APIView):
     def post(self, request, *args, **kwargs):
@@ -76,4 +76,28 @@ class KidneyPredictionAPIView(APIView):
             return Response({"error": "Missing input data"}, status=status.HTTP_400_BAD_REQUEST)
 
         result = predict_ckd(input_data)
+        return Response({"message": result}, status=status.HTTP_200_OK)
+
+class HeartDiseasePredictionAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        input_data = [
+            request.data.get('age'),
+            request.data.get('sex'),
+            request.data.get('cp'),
+            request.data.get('trestbps'),
+            request.data.get('chol'),
+            request.data.get('fbs'),
+            request.data.get('restecg'),
+            request.data.get('thalach'),
+            request.data.get('exang'),
+            request.data.get('oldpeak'),
+            request.data.get('slope'),
+            request.data.get('ca'),
+            request.data.get('thal')
+        ]
+
+        if None in input_data:
+            return Response({"error": "Missing input data"}, status=status.HTTP_400_BAD_REQUEST)
+
+        result = predict_heart(input_data)
         return Response({"message": result}, status=status.HTTP_200_OK)
