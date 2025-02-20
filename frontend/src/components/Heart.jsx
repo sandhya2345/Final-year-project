@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Heart = () => {
+  const navigate = useNavigate();
+
   const [age, setAge] = useState('');
   const [sex, setSex] = useState('');
   const [cp, setCp] = useState('');
@@ -15,7 +18,6 @@ const Heart = () => {
   const [slope, setSlope] = useState('');
   const [ca, setCa] = useState('');
   const [thal, setThal] = useState('');
-  const [prediction, setPrediction] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +37,6 @@ const Heart = () => {
       ca: Number(ca),
       thal: Number(thal),
     };
-    
 
     console.log("Sending Data:", formData); 
 
@@ -44,10 +45,9 @@ const Heart = () => {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      console.log("Response:", response.data); // Debugging log
-      setPrediction(response.data.message);
+      navigate('/result', { state: { message: response.data.message } });
     } catch (error) {
-      console.error("Error predicting heart disease:", error.response ? error.response.data : error);
+      console.error('Error predicting heart disease:', error);
     }
   };
 
@@ -151,7 +151,8 @@ const Heart = () => {
               <div>
                 <label className="block text-lg font-medium text-white">ST Depression Induced:</label>
                 <input
-                  type="float"
+                  type="number"
+                  step="0.1"
                   value={oldpeak}
                   onChange={(e) => setOldpeak(e.target.value)}
                   className="w-full mt-2 px-4 py-2 text-black border rounded"
@@ -196,14 +197,6 @@ const Heart = () => {
               Predict
             </button>
           </form>
-
-          {prediction && (
-            <div className="mt-6 text-center">
-              <h2 className="text-2xl font-bold text-white">
-                Prediction: {prediction}
-              </h2>
-            </div>
-          )}
         </div>
       </div>
     </div>

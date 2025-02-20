@@ -18,6 +18,7 @@ import Thyroid from './components/Thyroid';
 import Details from './components/HospitalDetail';
 import Kidney from './components/Kidney';
 import Heart from './components/Heart';
+import Result from './components/Result';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/hospitaldetails" element={<Details />} />
         <Route path="/kidney" element={<Kidney />} />
         <Route path="/heart" element={<Heart />} />
+        <Route path="/result" element={<Result />} />
       </Routes>
       <Footer/>
     </AuthProvider>
